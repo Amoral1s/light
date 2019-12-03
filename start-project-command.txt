@@ -1,0 +1,82 @@
+// Команды в консолях
+npm init -y
+npm install webpack webpack-cli -D
+npx webpack
+npm install --save-dev webpack-dev-server
+npm i path -D
+
+
+//Далее настройка babel
+npm install -D babel-loader @babel/core @babel/preset-env
+
+
+//Запуск по командам:
+npm run dev
+npm run build
+
+
+//Команды в package.json
+package.json >
+
+"scripts": {
+    "dev": "webpack-dev-server --open --mode=development",
+    "build": "webpack --mode=production"
+  },
+
+
+//Создание файла
+webpack.config.js >
+
+
+const path = require('path');
+
+module.exports = {
+  entry: {
+    main: './src/index.js'
+  },
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: '[name].js',
+    publicPath: '/dist'
+  },
+  devServer: {
+    overlay: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: '/node_modules/'
+      }
+    ]
+  }
+};
+
+
+//Создание файла .babelrc >
+{
+  "presets": ["@babel/preset-env"]
+}
+
+//Установка полифилов
+
+npm i nodelist-foreach-polyfill
+npm install --save @babel/polyfill
+npm i element-closest
+npm i formdata-polyfill
+npm i es6-promise 
+npm i fetch-polyfill --save-dev
+
+
+//Прописать в src/index.js >
+
+'use strict';
+
+import "@babel/polyfill";
+import 'nodelist-foreach-polyfill';
+import 'formdata-polyfill';
+import 'es6-promise';
+import 'fetch-polyfill';
+import elementClosest from 'element-closest';
+elementClosest(window);
