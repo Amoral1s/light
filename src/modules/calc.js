@@ -4,7 +4,7 @@ const calc = () => {
         calcBtn = document.querySelector('#accordion'),
         calcHead = document.querySelectorAll('.tabHead1'),
         calcNext = document.querySelectorAll('.nextCalcBtn');
-
+      let currentSlide = 0;
     const toggleContent = (index) => {
       for (let i = 0; i < calcBody.length; i++) {
         if (index === i) {
@@ -17,17 +17,16 @@ const calc = () => {
     if (!calcBtn) {
       return;
     }
-    let currentSlide = 0;
+    
   
     const nextSlide = (elem, index, strClass) => {
       elem[index].classList.add(strClass);
       elem[index-1].classList.remove(strClass);
     };
     calcBtn.addEventListener('click', (event, index) => {
-
-        let target = event.target;
-    
-        if (target.classList.contains('tabHead1') ) {
+      console.log();
+        let target = event.target.closest('.tabHead1');
+        if (target.classList.contains('tabHead1')) {
           event.preventDefault();
           calcHead.forEach((item, i) => {
               if (item === target) {
@@ -37,16 +36,22 @@ const calc = () => {
           currentSlide = 0;
         }
       
+      });
+    calcBtn.addEventListener('click', (event, index) => {
+      console.log();
+        let target = event.target.closest('.nextCalcBtn');
+        
         if (target.matches('.nextCalcBtn') || target.matches('.nextCalcBtn span')) {
           calcNext.forEach((item, i) => {
             if (item === target) {
-              toggleContent(i);
+              event.preventDefault();
+              currentSlide++;
+              nextSlide(calcBody, currentSlide, 'in');
             }
         });
-          event.preventDefault();
-          currentSlide++;
-          nextSlide(calcBody, currentSlide, 'in');
+          
         } 
+      
       });
 
   //расчет 
@@ -116,6 +121,18 @@ const calc = () => {
           statusMessage = document.createElement('div');
     form4.addEventListener('submit', (event) => {
       event.preventDefault();
+      const errorDiv = document.querySelectorAll('.validator-error');
+      form4.appendChild(statusMessage);
+      if (errorDiv.length > 0) {
+        statusMessage.textContent = 'Заполните поля правильно!';
+        errorDiv.forEach((elem) => {
+          setTimeout(() => {
+            elem.style.display = 'none';
+            form4.reset();
+          }, 1000);
+        });
+        return;
+      }
       if (calcCheck.checked) {
         countSum.total = 10000;
         secondCalc.forEach((elem) => {
@@ -160,7 +177,6 @@ const calc = () => {
       } else {}
       objectCalc.distance.push('Расстояние до дома', distance.value);
       objectCalc.count.push('Примерная стоимость', count.value);
-      form4.appendChild(statusMessage);
       statusMessage.textContent = loadMessage;
       const formData = new FormData(form4);
       let body = {};
@@ -170,6 +186,8 @@ const calc = () => {
       });
       postData(body, () => {
         statusMessage.textContent = successMessage;
+        form4.reset();
+        errorDiv.delete();
       }, () => {
         statusMessage.textContent = errorMessage;
       });

@@ -43,7 +43,7 @@
                 <div class="contacts">
                     <p>+7 <img src="" alt="" style="width: 0px">(800) <img src="" alt="" style="width: 0px">555-<img
                             src="" alt="" style="width: 0px">64-47</p>
-                    <a class="call-btn" href="#">Перезвоните мне</a>
+                    <a class="call-btn-callback" href="#">Перезвоните мне</a>
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
                     <p>Не знаете как построить канализацию? <br> Закажите <span>бесплатную</span> консультацию <br> мы
                         подскажем и подготовим проект и смету</p>
                     <label for="phone">Ваш телефон для получения скидки</label>
-                    <input class="phone-user" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
+                    <input class="phone-user phone1" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
                            required>
                     <button class="button main-form-btn" name="submit" type="submit">Получить консультацию</button>
                     <p class="small">Заполнения заявки Вас ни к чему не обязывает! <br> Вы сможете отказаться в любой
@@ -110,7 +110,7 @@
                     <label for="name_2">Как к вам обращаться</label>
                     <input type="text" id="name" name="user_name" placeholder="Ваше имя" required>
                     <label for="phone_2">Ваш телефон для получения скидки</label>
-                    <input class="phone-user" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
+                    <input class="phone-user phone2" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
                            required>
                     <button class="button capture-form-btn" name="submit" type="submit">Получить расчет и скидку
                     </button>
@@ -131,7 +131,7 @@
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                     <div class="panel panel-default panel-one wow fadeInLeft">
-                        <div class="panel-heading tabHead1" role="tab" id="headingOne">
+                        <div class="panel-heading tabHead1" data-head="1" role="tab" id="headingOne">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                                    aria-expanded="true" aria-controls="collapseOne">
@@ -160,7 +160,7 @@
                     </div>
 
                     <div class="panel panel-default panel-two wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="panel-heading tabHead1" role="tab" id="headingTwo">
+                        <div class="panel-heading tabHead1" data-head="2" role="tab" id="headingTwo">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                    href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -212,7 +212,7 @@
                     </div>
 
                     <div class="panel panel-default panel-three wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="panel-heading tabHead1" role="tab" id="headingThree">
+                        <div class="panel-heading tabHead1" data-head="3" role="tab" id="headingThree">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                    href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -241,7 +241,7 @@
                     </div>
 
                     <div class="panel panel-default panel-four wow fadeInRight" data-wow-delay="0.3s">
-                        <div class="panel-heading tabHead1" role="tab" id="headingFour">
+                        <div class="panel-heading tabHead1" data-head="4" role="tab" id="headingFour">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                    href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -375,7 +375,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseOne-two" class="panel-collapse tabs2 collapse in" role="tabpanel"
+                <div id="collapseOne-two" class="panel-collapse tabs2 collapse in2" role="tabpanel"
                      aria-labelledby="headingOne">
                     <div class="panel-body">
                         Вероятность того, что вода в подводящем трубопроводе замерзнет, отсутствует, потому что она
@@ -471,7 +471,7 @@
                 <div class="contacts">
                     <p>+7 <img src="" alt="" style="width: 0px">(800) <img src="" alt="" style="width: 0px">555-<img
                             src="" alt="" style="width: 0px">64-47</p>
-                    <a class="call-btn" href="#">Перезвоните мне</a>
+                    <a class="call-btn-callback" href="#">Перезвоните мне</a>
                 </div>
             </div>
         </div>
@@ -489,7 +489,7 @@
                 <label for="name_1">Как к вам обращаться</label>
                 <input type="text" id="name" name="user_name" placeholder="Ваше имя" required>
                 <label for="phone_1">Ваш телефон для получения скидки</label>
-                <input class="phone-user" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
+                <input class="phone-user phone4" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
                        required>
                 <button class="button capture-form-btn" name="submit" type="submit">Получить расчет и скидку</button>
                 <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа
@@ -500,7 +500,26 @@
         </div>
     </div>
 </div>
-
+<div class="popup-callback popup">
+    <div class="popup-dialog">
+        <div class="popup-content">
+            <!-- <div class="popup-form"> -->
+            <form class="capture-form text-center" id="form11">
+                <span class="circle"><button class="popup-close">&times;</button></span>
+                <label for="name_1">Как к вам обращаться</label>
+                <input type="text" id="name" name="user_name" placeholder="Ваше имя" required>
+                <label for="phone_1">Ваш телефон для получения скидки</label>
+                <input class="phone-user phone4" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
+                       required>
+                <button class="button capture-form-btn" name="submit" type="submit">Получить расчет и скидку</button>
+                <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа
+                    грунта, <br> расположения объектов на участке, уровня грунтовых <br> вод, типа фундамента дома и еще
+                    7 параметров</p>
+            </form>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
 <div class="popup-discount popup">
     <div class="popup-dialog">
         <div class="popup-content">
@@ -510,7 +529,7 @@
                 <label for="name_11">Как к вам обращаться</label>
                 <input type="text" id="name" name="user_name" placeholder="Ваше имя" required>
                 <label for="phone_11">Ваш телефон для получения скидки</label>
-                <input class="phone-user" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
+                <input class="phone-user phone5" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
                        required>
                 <button class="button capture-form-btn" name="submit" type="submit">Заказать со скидкой</button>
                 <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа
@@ -531,7 +550,7 @@
                 <label for="name_12">Как к вам обращаться</label>
                 <input type="text" id="name" name="user_name" placeholder="Ваше имя" required>
                 <label for="phone_12">Ваш телефон для получения скидки</label>
-                <input class="phone-user" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
+                <input class="phone-user phone6" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
                        required>
                 <button class="button capture-form-btn" name="submit" type="submit">Получить чек-лист и скидку</button>
                 <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа
@@ -552,7 +571,7 @@
                 <label for="name_13">Как к вам обращаться</label>
                 <input type="text" id="name" name="user_name" placeholder="Ваше имя" required>
                 <label for="phone_13">Ваш телефон для получения скидки</label>
-                <input class="phone-user" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
+                <input class="phone-user phone7" type="text" id="phone" name="user_phone" placeholder="+7(___)___-__-__"
                        required>
                 <button class="button capture-form-btn" name="submit" type="submit">Получить консультацию</button>
                 <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа

@@ -6,9 +6,9 @@ const tabs = () => {
   const toggleContent = (index) => {
     for (let i = 0; i < tabBody.length; i++) {
       if (index === i) {
-        tabBody[i].classList.add('in');
+        tabBody[i].classList.add('in2');
       } else {
-        tabBody[i].classList.remove('in');
+        tabBody[i].classList.remove('in2');
       }
     }
   };

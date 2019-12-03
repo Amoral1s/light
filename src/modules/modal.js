@@ -1,6 +1,8 @@
 const modal = () => {
   const callBtn = document.querySelectorAll('.call-btn'),
+        callBtnCallback = document.querySelectorAll('.call-btn-callback'),
         popup = document.querySelector('.popup-call'),
+        popupCallBack = document.querySelector('.popup-callback'),
         callBtnDiscount = document.querySelectorAll('.discount-btn'),
         popupDiscount = document.querySelector('.popup-discount'),
         callBtnCheck = document.querySelectorAll('.check-btn'),
@@ -26,6 +28,25 @@ const modal = () => {
 
       if(!target) {
         popup.classList.remove('popup-active');
+      }
+    }
+  });
+  callBtnCallback.forEach((elem) => {
+    elem.addEventListener('click', (event) => {
+      event.preventDefault();
+      popupCallBack.classList.add('popup-active');
+    });
+  });
+  popupCallBack.addEventListener('click', (event) => {
+    let target = event.target;
+
+    if(target.classList.contains('popup-close')) {
+      popupCallBack.classList.remove('popup-active');
+    } else {
+      target = target.closest('.popup-content');
+
+      if(!target) {
+        popupCallBack.classList.remove('popup-active');
       }
     }
   });

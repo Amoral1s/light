@@ -8,117 +8,199 @@ const sendForm = () => {
         form5 = document.getElementById('form5'),
         form6 = document.getElementById('form6'),
         form7 = document.getElementById('form7'),
+        form11 = document.getElementById('form11'),
         statusMessage = document.createElement('div'),
         consMessage = document.getElementById('#form2-message');
-
+  statusMessage.classList.add('status-message');
   form1.addEventListener('submit', (event) => {
     event.preventDefault();
+    const errorDiv = document.querySelectorAll('.validator-error');
     form1.appendChild(statusMessage);
+    if (errorDiv.length > 0) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      errorDiv.forEach((elem) => {
+        setTimeout(() => {
+          elem.style.display = 'none';
+          form1.reset();
+        }, 1000);
+      });
+      return;
+    }
+    
     statusMessage.textContent = loadMessage;
     const formData = new FormData(form1);
     let body = {};
-    
     formData.forEach((val, key) => {
       body[key] = val;
     });
     postData(body, () => {
       statusMessage.textContent = successMessage;
+      form1.reset();
+      
+    }, () => {
+      statusMessage.textContent = errorMessage;
+    });
+  });
+  form11.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const errorDiv = document.querySelectorAll('.validator-error');
+    form11.appendChild(statusMessage);
+    if (errorDiv.length > 0) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      errorDiv.forEach((elem) => {
+        setTimeout(() => {
+          elem.style.display = 'none';
+          form11.reset();
+        }, 1000);
+      });
+      return;
+    }
+    
+    statusMessage.textContent = loadMessage;
+    const formData = new FormData(form11);
+    let body = {};
+    formData.forEach((val, key) => {
+      body[key] = val;
+    });
+    postData(body, () => {
+      statusMessage.textContent = successMessage;
+      form1.reset();
+      
     }, () => {
       statusMessage.textContent = errorMessage;
     });
   });
   form2.addEventListener('submit', (event) => {
     event.preventDefault();
+    const errorDiv = document.querySelectorAll('.validator-error');
     form2.appendChild(statusMessage);
+    if (errorDiv.length > 0) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      errorDiv.forEach((elem) => {
+        setTimeout(() => {
+          elem.style.display = 'none';
+          form2.reset();
+        }, 1000);
+      });
+      return;
+    }
     statusMessage.textContent = loadMessage;
     const formData = new FormData(form2);
     let body = {};
-    
     formData.forEach((val, key) => {
       body[key] = val;
     });
     postData(body, () => {
       statusMessage.textContent = successMessage;
+      form2.reset();
+      errorDiv.delete();
     }, () => {
       statusMessage.textContent = errorMessage;
     });
   });
-  
-  
+  form3.addEventListener('submit', (event) => {
+    event.preventDefault();
+    JSON.stringify(consMessage.value);
+  });
   form5.addEventListener('submit', (event) => {
     event.preventDefault();
+    const errorDiv = document.querySelectorAll('.validator-error');
     form5.appendChild(statusMessage);
+    if (errorDiv.length > 0) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      errorDiv.forEach((elem) => {
+        setTimeout(() => {
+          elem.style.display = 'none';
+          form5.reset();
+        }, 1000);
+      });
+      return;
+    }
     statusMessage.textContent = loadMessage;
     const formData = new FormData(form5);
     let body = {};
-    
     formData.forEach((val, key) => {
       body[key] = val;
     });
     postData(body, () => {
       statusMessage.textContent = successMessage;
+      form5.reset();
+      errorDiv.delete();
     }, () => {
       statusMessage.textContent = errorMessage;
     });
   });
   form6.addEventListener('submit', (event) => {
     event.preventDefault();
+    const errorDiv = document.querySelectorAll('.validator-error');
     form6.appendChild(statusMessage);
+    if (errorDiv.length > 0) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      errorDiv.forEach((elem) => {
+        setTimeout(() => {
+          elem.style.display = 'none';
+          form6.reset();
+        }, 1000);
+      });
+      return;
+    }
     statusMessage.textContent = loadMessage;
     const formData = new FormData(form6);
     let body = {};
-    
     formData.forEach((val, key) => {
       body[key] = val;
     });
     postData(body, () => {
       statusMessage.textContent = successMessage;
+      form6.reset();
+      errorDiv.delete();
     }, () => {
       statusMessage.textContent = errorMessage;
     });
   });
   
-  
-
-
-
-form3.addEventListener('submit', (event) => {
+  form7.addEventListener('submit', (event) => {
     event.preventDefault();
-    JSON.stringify(consMessage.value);
-  });
-form7.addEventListener('submit', (event) => {
-  event.preventDefault();
-  form7.appendChild(statusMessage);
-  statusMessage.textContent = loadMessage;
-  const formData = new FormData(form7);
-  let body = {};
-  
-  formData.forEach((val, key) => {
-    body[key] = val;
-  });
-  postData(body, () => {
-    JSON.stringify(consMessage.value);
-    statusMessage.textContent = successMessage;
-  }, () => {
-    statusMessage.textContent = errorMessage;
-    console.log(JSON.stringify(consMessage.value));
-    
-  });
-});
-const postData = (body, outputData, errorData) => {
-  const request = new XMLHttpRequest();
-  request.addEventListener('readystatechange', () => {
-    if (request.readyState !== 4) {
+    const errorDiv = document.querySelectorAll('.validator-error');
+    form7.appendChild(statusMessage);
+    if (errorDiv.length > 0) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      errorDiv.forEach((elem) => {
+        setTimeout(() => {
+          elem.style.display = 'none';
+          form7.reset();
+        }, 1000);
+      });
       return;
-    } if (request.status === 200) {
-      outputData();
-    } else {
-      errorData(request.status);
     }
+    statusMessage.textContent = loadMessage;
+    const formData = new FormData(form7);
+    let body = {};
+    formData.forEach((val, key) => {
+      body[key] = val;
+    });
+    postData(body, () => {
+      statusMessage.textContent = successMessage;
+      form7.reset();
+      errorDiv.delete();
+    }, () => {
+      statusMessage.textContent = errorMessage;
+    });
   });
-  request.open('POST', './server.php');
-  request.setRequestHeader('Content-Type', 'application/JSON');
-  request.send(JSON.stringify(body));
-};
-};
+  const postData = (body, outputData, errorData) => {
+    const request = new XMLHttpRequest();
+    request.addEventListener('readystatechange', () => {
+      if (request.readyState !== 4) {
+        return;
+      } if (request.status === 200) {
+        outputData();
+      } else {
+        errorData(request.status);
+      }
+    });
+    request.open('POST', './server.php');
+    request.setRequestHeader('Content-Type', 'application/JSON');
+    request.send(JSON.stringify(body));
+  };
+  };
 export default sendForm;
