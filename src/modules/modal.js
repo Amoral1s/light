@@ -8,9 +8,9 @@ const modal = () => {
         callBtnCheck = document.querySelectorAll('.check-btn'),
         popupCheck = document.querySelector('.popup-check'),
         callBtnCons = document.querySelectorAll('.consultation-btn'),
-        popupCons = document.querySelector('.popup-consultation');
+        popupCons = document.querySelector('.popup-consultation'),
+        textarea = document.getElementById('#form2-message');
   
-
 
   callBtn.forEach((elem) => {
     elem.addEventListener('click', (event) => {
@@ -90,7 +90,9 @@ const modal = () => {
   });
   callBtnCons.forEach((elem) => {
     elem.addEventListener('click', (event) => {
-      popupCons.classList.add('popup-active');
+      if (textarea.value != '') {
+        popupCons.classList.add('popup-active');
+      }
     });
   });
   popupCons.addEventListener('click', (event) => {

@@ -24,9 +24,9 @@ const calc = () => {
       elem[index-1].classList.remove(strClass);
     };
     calcBtn.addEventListener('click', (event, index) => {
-      console.log();
-        let target = event.target.closest('.tabHead1');
-        if (target.classList.contains('tabHead1')) {
+        let target = event.target;
+       
+        if ((target = event.target.closest('.tabHead1') || event.target.closest('.nextCalcBtn')) && target.classList.contains('tabHead1')) {
           event.preventDefault();
           calcHead.forEach((item, i) => {
               if (item === target) {
@@ -34,23 +34,22 @@ const calc = () => {
               }
           });
           currentSlide = 0;
-        }
-      
-      });
-    calcBtn.addEventListener('click', (event, index) => {
-      console.log();
-        let target = event.target.closest('.nextCalcBtn');
-        
-        if (target.matches('.nextCalcBtn') || target.matches('.nextCalcBtn span')) {
-          calcNext.forEach((item, i) => {
+        } else if ((target = event.target.closest('.tabHead1') || event.target.closest('.nextCalcBtn')) && target.matches('.nextCalcBtn')) {
+          calcNext.forEach((item) => {
             if (item === target) {
               event.preventDefault();
               currentSlide++;
               nextSlide(calcBody, currentSlide, 'in');
             }
         });
-          
-        } 
+        } else {
+          return;
+        }
+      });
+    calcBtn.addEventListener('click', (event, index) => {
+      
+        let target = event.target.closest('.nextCalcBtn');
+        
       
       });
 
@@ -121,16 +120,11 @@ const calc = () => {
           statusMessage = document.createElement('div');
     form4.addEventListener('submit', (event) => {
       event.preventDefault();
-      const errorDiv = document.querySelectorAll('.validator-error');
+      let errorDiv = [...document.querySelectorAll('.validator-error')];
       form4.appendChild(statusMessage);
       if (errorDiv.length > 0) {
         statusMessage.textContent = 'Заполните поля правильно!';
-        errorDiv.forEach((elem) => {
-          setTimeout(() => {
-            elem.style.display = 'none';
-            form4.reset();
-          }, 1000);
-        });
+        errorDiv.length = 0;
         return;
       }
       if (calcCheck.checked) {

@@ -14,16 +14,11 @@ const sendForm = () => {
   statusMessage.classList.add('status-message');
   form1.addEventListener('submit', (event) => {
     event.preventDefault();
-    const errorDiv = document.querySelectorAll('.validator-error');
+    let errorDiv = [...document.querySelectorAll('.validator-error')];
     form1.appendChild(statusMessage);
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
-      errorDiv.forEach((elem) => {
-        setTimeout(() => {
-          elem.style.display = 'none';
-          form1.reset();
-        }, 1000);
-      });
+      errorDiv.length = 0;
       return;
     }
     
@@ -43,16 +38,11 @@ const sendForm = () => {
   });
   form11.addEventListener('submit', (event) => {
     event.preventDefault();
-    const errorDiv = document.querySelectorAll('.validator-error');
+    let errorDiv = [...document.querySelectorAll('.validator-error')];
     form11.appendChild(statusMessage);
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
-      errorDiv.forEach((elem) => {
-        setTimeout(() => {
-          elem.style.display = 'none';
-          form11.reset();
-        }, 1000);
-      });
+      errorDiv.length = 0;
       return;
     }
     
@@ -64,7 +54,7 @@ const sendForm = () => {
     });
     postData(body, () => {
       statusMessage.textContent = successMessage;
-      form1.reset();
+      form11.reset();
       
     }, () => {
       statusMessage.textContent = errorMessage;
@@ -72,16 +62,11 @@ const sendForm = () => {
   });
   form2.addEventListener('submit', (event) => {
     event.preventDefault();
-    const errorDiv = document.querySelectorAll('.validator-error');
+    let errorDiv = [...document.querySelectorAll('.validator-error')];
     form2.appendChild(statusMessage);
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
-      errorDiv.forEach((elem) => {
-        setTimeout(() => {
-          elem.style.display = 'none';
-          form2.reset();
-        }, 1000);
-      });
+      errorDiv.length = 0;
       return;
     }
     statusMessage.textContent = loadMessage;
@@ -104,16 +89,11 @@ const sendForm = () => {
   });
   form5.addEventListener('submit', (event) => {
     event.preventDefault();
-    const errorDiv = document.querySelectorAll('.validator-error');
+    let errorDiv = [...document.querySelectorAll('.validator-error')];
     form5.appendChild(statusMessage);
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
-      errorDiv.forEach((elem) => {
-        setTimeout(() => {
-          elem.style.display = 'none';
-          form5.reset();
-        }, 1000);
-      });
+      errorDiv.length = 0;
       return;
     }
     statusMessage.textContent = loadMessage;
@@ -132,16 +112,11 @@ const sendForm = () => {
   });
   form6.addEventListener('submit', (event) => {
     event.preventDefault();
-    const errorDiv = document.querySelectorAll('.validator-error');
+    let errorDiv = [...document.querySelectorAll('.validator-error')];
     form6.appendChild(statusMessage);
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
-      errorDiv.forEach((elem) => {
-        setTimeout(() => {
-          elem.style.display = 'none';
-          form6.reset();
-        }, 1000);
-      });
+      errorDiv.length = 0;
       return;
     }
     statusMessage.textContent = loadMessage;
@@ -161,16 +136,11 @@ const sendForm = () => {
   
   form7.addEventListener('submit', (event) => {
     event.preventDefault();
-    const errorDiv = document.querySelectorAll('.validator-error');
+    let errorDiv = [...document.querySelectorAll('.validator-error')];
     form7.appendChild(statusMessage);
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
-      errorDiv.forEach((elem) => {
-        setTimeout(() => {
-          elem.style.display = 'none';
-          form7.reset();
-        }, 1000);
-      });
+      errorDiv.length = 0;
       return;
     }
     statusMessage.textContent = loadMessage;
