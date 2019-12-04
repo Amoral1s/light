@@ -181,6 +181,14 @@ const calc = () => {
       postData(body, () => {
         statusMessage.textContent = successMessage;
         form4.reset();
+        calcCheck.reset();
+        firstRadius.reset();
+        numRings.reset();
+        secondRadius.reset();
+        secondNumRings.reset();
+        floor.reset();
+        count.reset();
+        secondCalc.reset();
         errorDiv.delete();
       }, () => {
         statusMessage.textContent = errorMessage;

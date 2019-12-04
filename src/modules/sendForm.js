@@ -83,10 +83,7 @@ const sendForm = () => {
       statusMessage.textContent = errorMessage;
     });
   });
-  form3.addEventListener('submit', (event) => {
-    event.preventDefault();
-    JSON.stringify(consMessage.value);
-  });
+  
   form5.addEventListener('submit', (event) => {
     event.preventDefault();
     let errorDiv = [...document.querySelectorAll('.validator-error')];
@@ -133,6 +130,12 @@ const sendForm = () => {
       statusMessage.textContent = errorMessage;
     });
   });
+  let jsonForm = [];
+  form3.addEventListener('submit', (event) => {
+    event.preventDefault();
+    jsonForm.push('Сообщение', consMessage.value);
+  });
+  
   
   form7.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -149,9 +152,10 @@ const sendForm = () => {
     formData.forEach((val, key) => {
       body[key] = val;
     });
-    postData(body, () => {
+    postData7(body, () => {
       statusMessage.textContent = successMessage;
       form7.reset();
+      consMessage.value = '';
       errorDiv.delete();
     }, () => {
       statusMessage.textContent = errorMessage;
@@ -171,6 +175,22 @@ const sendForm = () => {
     request.open('POST', './server.php');
     request.setRequestHeader('Content-Type', 'application/JSON');
     request.send(JSON.stringify(body));
+  };
+  const postData7 = (body, outputData, errorData) => {
+    const request = new XMLHttpRequest();
+    request.addEventListener('readystatechange', () => {
+      if (request.readyState !== 4) {
+        return;
+      } if (request.status === 200) {
+        outputData();
+      } else {
+        errorData(request.status);
+      }
+    });
+    request.open('POST', './server.php');
+    request.setRequestHeader('Content-Type', 'application/JSON');
+    let allDate = [{body},{jsonForm}];
+    request.send(JSON.stringify(allDate));
   };
   };
 export default sendForm;

@@ -73,13 +73,12 @@ const valids = () => {
   const valid3 = new Validator ({
     selector: '#form3',
     pattern: {
-      phone: /^\+?[78]([-()]*\d){10}$/,
-      email: /^\w+@\w+\.\w{2,}$/
+      name: /[^а-я, ^А-Я]/
     },
     method: {
-      'phone': [
+      'form2-message': [
         ['notEmpty'],
-        ['pattern', 'phone']
+        ['pattern', 'name']
       ]
       
     }
@@ -134,12 +133,13 @@ const valids = () => {
     selector: '#form7',
     pattern: {
       phone: /^\+?[78]([-()]*\d){10}$/,
-      email: /^\w+@\w+\.\w{2,}$/
+      email: /^\w+@\w+\.\w{2,}$/,
+      name: /[^а-я, ^А-Я, ^\d?\.?]/
     },
     method: {
-      'phone': [
+      'form2-message': [
         ['notEmpty'],
-        ['pattern', 'phone']
+        ['pattern', 'name']
       ]
       
     }
