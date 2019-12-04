@@ -3,25 +3,59 @@ const calc = () => {
   const calcBody = document.querySelectorAll('.tabs1'),
         calcBtn = document.querySelector('#accordion'),
         calcHead = document.querySelectorAll('.tabHead1'),
+        collapse = document.getElementById('collapseThree'),
         calcNext = document.querySelectorAll('.nextCalcBtn');
       let currentSlide = 0;
     const toggleContent = (index) => {
       for (let i = 0; i < calcBody.length; i++) {
+
         if (index === i) {
           calcBody[i].classList.add('in');
+        } else if (index === 1 && !calcCheck.checked) {
+          calcBody[i].classList.remove('in');
+          calcBody[index].classList.add('in3');
         } else {
           calcBody[i].classList.remove('in');
+          calcBody[i].classList.remove('in3');
         }
+        
       }
+
     };
     if (!calcBtn) {
       return;
     }
-    
-  
     const nextSlide = (elem, index, strClass) => {
+      if (index === 0) {
+        toggleContent(0);
+      }
+      if (index === 1) {
+        if (index === 1 && collapse.classList.contains('in')) {
+          index = 3;
+          toggleContent(3);
+        } else {
+          toggleContent(1);
+
+        }
+      }
+      if (index === 2) {
+        toggleContent(2);
+      }
+      if (index === 3) {
+        toggleContent(3);
+      }
+
+      /* if (index === 1 && !calcCheck.checked) {
+        elem[index].classList.add('in3');
+      }
+      else if (index === 2) {
+        elem[index].classList.add(strClass);
+        elem[index-1].classList.remove(strClass);
+      }
       elem[index].classList.add(strClass);
       elem[index-1].classList.remove(strClass);
+      console.log(index); */
+      
     };
     calcBtn.addEventListener('click', (event, index) => {
         let target = event.target;
@@ -179,16 +213,17 @@ const calc = () => {
         body[key] = val;
       });
       postData(body, () => {
-        statusMessage.textContent = successMessage;
         form4.reset();
-        calcCheck.reset();
-        firstRadius.reset();
-        numRings.reset();
-        secondRadius.reset();
-        secondNumRings.reset();
-        floor.reset();
-        count.reset();
-        secondCalc.reset();
+        statusMessage.textContent = successMessage;
+        calcCheck.value = '';
+        firstRadius.value = '';
+        numRings.value = '';
+        secondRadius.value = '';
+        secondNumRings.value = '';
+        floor.value = '';
+        count.value = '';
+        secondCalc.value = '';
+        distance.value = '';
         errorDiv.delete();
       }, () => {
         statusMessage.textContent = errorMessage;
