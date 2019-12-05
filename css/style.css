@@ -1504,8 +1504,13 @@ header .logo img {
   height: 0;
   transition: all 0.6s;
 }
+
 .in {
   height: 220px;
+  transition: all 0.6s;
+}
+.in3 {
+  height: 320px;
   transition: all 0.6s;
 }
 .in2 {

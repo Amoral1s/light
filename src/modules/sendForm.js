@@ -78,7 +78,7 @@ const sendForm = () => {
     postData(body, () => {
       statusMessage.textContent = successMessage;
       form2.reset();
-      errorDiv.delete();
+      
     }, () => {
       statusMessage.textContent = errorMessage;
     });
@@ -102,7 +102,6 @@ const sendForm = () => {
     postData(body, () => {
       statusMessage.textContent = successMessage;
       form5.reset();
-      errorDiv.delete();
     }, () => {
       statusMessage.textContent = errorMessage;
     });
@@ -125,7 +124,6 @@ const sendForm = () => {
     postData(body, () => {
       statusMessage.textContent = successMessage;
       form6.reset();
-      errorDiv.delete();
     }, () => {
       statusMessage.textContent = errorMessage;
     });
@@ -156,7 +154,6 @@ const sendForm = () => {
       statusMessage.textContent = successMessage;
       form7.reset();
       consMessage.value = '';
-      errorDiv.delete();
     }, () => {
       statusMessage.textContent = errorMessage;
     });

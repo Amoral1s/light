@@ -224,7 +224,6 @@ const calc = () => {
         count.value = '';
         secondCalc.value = '';
         distance.value = '';
-        errorDiv.delete();
       }, () => {
         statusMessage.textContent = errorMessage;
       });
