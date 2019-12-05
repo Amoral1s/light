@@ -69,6 +69,31 @@ const calc = () => {
           });
           currentSlide = 0;
         } else if ((target = event.target.closest('.tabHead1') || event.target.closest('.nextCalcBtn')) && target.matches('.nextCalcBtn')) {
+          let total = 0;
+
+          if (calcCheck.checked) {
+            total = 10000;
+            secondCalc.forEach((elem) => {
+              elem.style.display = 'none';
+            });
+          }
+          if (calcCheck.checked) {
+            total = 10000;
+            secondCalc.forEach((elem) => {
+              elem.style.display = 'none';
+            });
+          } else {
+            total = 15000;
+            secondCalc.forEach((elem) => {
+              elem.style.display = 'inline-block';
+            });
+          }
+          if (floor.checked) {
+            count.value = (+total*+firstRadius.value*+numRings.value*+secondRadius.value*+secondNumRings.value)+2000;
+          } else {
+            count.value = +total * +firstRadius.value * +numRings.value * +secondRadius.value * +secondNumRings.value;
+          }
+          
           calcNext.forEach((item) => {
             if (item === target) {
               event.preventDefault();
@@ -80,12 +105,7 @@ const calc = () => {
           return;
         }
       });
-    calcBtn.addEventListener('click', (event, index) => {
-      
-        let target = event.target.closest('.nextCalcBtn');
-        
-      
-      });
+    
 
   //расчет 
 
@@ -140,8 +160,6 @@ const calc = () => {
         } else {
           count.value = +total * +firstRadius.value * +numRings.value * +secondRadius.value * +secondNumRings.value;
         }
-       
-        
       });
        
     };
