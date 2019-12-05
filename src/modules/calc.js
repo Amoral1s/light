@@ -120,6 +120,7 @@ const calc = () => {
         count = document.querySelector('#calc-result'),
         callBtnCalc = document.querySelector('.call-calc-btn'),
         secondCalc = document.querySelectorAll('.secondCalc');
+  const validName = document.querySelectorAll('#name');
         
     let objectCalc = {
       'diameter': [],
@@ -174,6 +175,10 @@ const calc = () => {
       event.preventDefault();
       let errorDiv = [...document.querySelectorAll('.validator-error')];
       form4.appendChild(statusMessage);
+      if (validName[1].value.length < 2) {
+        statusMessage.textContent = 'Заполните поля правильно!';
+        return;
+      }
       if (errorDiv.length > 0) {
         statusMessage.textContent = 'Заполните поля правильно!';
         errorDiv.length = 0;

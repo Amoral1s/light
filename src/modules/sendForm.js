@@ -11,6 +11,8 @@ const sendForm = () => {
         form11 = document.getElementById('form11'),
         statusMessage = document.createElement('div'),
         consMessage = document.getElementById('#form2-message');
+  const validName = document.querySelectorAll('#name');
+  
   statusMessage.classList.add('status-message');
   form1.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -40,6 +42,10 @@ const sendForm = () => {
     event.preventDefault();
     let errorDiv = [...document.querySelectorAll('.validator-error')];
     form11.appendChild(statusMessage);
+    if (validName[1].value.length < 2) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      return;
+    }
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
       errorDiv.length = 0;
@@ -64,6 +70,10 @@ const sendForm = () => {
     event.preventDefault();
     let errorDiv = [...document.querySelectorAll('.validator-error')];
     form2.appendChild(statusMessage);
+    if (validName[0].value.length < 2) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      return;
+    }
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
       errorDiv.length = 0;
@@ -88,6 +98,10 @@ const sendForm = () => {
     event.preventDefault();
     let errorDiv = [...document.querySelectorAll('.validator-error')];
     form5.appendChild(statusMessage);
+    if (validName[1].value.length < 2) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      return;
+    }
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
       errorDiv.length = 0;
@@ -110,6 +124,11 @@ const sendForm = () => {
     event.preventDefault();
     let errorDiv = [...document.querySelectorAll('.validator-error')];
     form6.appendChild(statusMessage);
+   
+    if (validName[4].value.length < 2) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      return;
+    }
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
       errorDiv.length = 0;
@@ -139,6 +158,11 @@ const sendForm = () => {
     event.preventDefault();
     let errorDiv = [...document.querySelectorAll('.validator-error')];
     form7.appendChild(statusMessage);
+    
+    if (validName[5].value.length < 2) {
+      statusMessage.textContent = 'Заполните поля правильно!';
+      return;
+    }
     if (errorDiv.length > 0) {
       statusMessage.textContent = 'Заполните поля правильно!';
       errorDiv.length = 0;
